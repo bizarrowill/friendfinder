@@ -1,0 +1,27 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "\"FriendFinder\" application -- basically a dating app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizarrowill/friendfinder.git"
+  },
+  "author": "William Robertson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bizarrowill/friendfinder/issues"
+  },
+  "homepage": "https://github.com/bizarrowill/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "require": "^2.4.20"
+  }
+}
