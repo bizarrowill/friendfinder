@@ -24,7 +24,7 @@ module.exports = function(app, path) {
       var returnMatch = [];
 
       //    response object
-      var postResponse = JASON.stringify(req.body);
+      var postResponse = JSON.stringify(req.body);
 
         fs.readFile("app/data/friends.js", function(err, data) {
           // Read the existing array

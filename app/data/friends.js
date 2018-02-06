@@ -53,7 +53,7 @@
   {
     name: "Vicky G",
     photo:
-      "hhttps://pbs.twimg.com/profile_images/548401613153386499/2wm97nF7.jpeg",
+      "https://pbs.twimg.com/profile_images/548401613153386499/2wm97nF7.jpeg",
     scores: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
   },
   {
