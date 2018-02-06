@@ -1,4 +1,4 @@
-var friends = [
+[
   {
     name: "Frank the Clown",
     photo: "https://i.ytimg.com/vi/LNlk3VucmKk/maxresdefault.jpg",
