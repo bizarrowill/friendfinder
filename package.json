@@ -18,11 +18,17 @@
   },
   "homepage": "https://github.com/bizarrowill/friendfinder#readme",
   "dependencies": {
+    "bignumber.js": "^6.0.0",
     "body-parser": "^1.18.2",
+    "core-util-is": "^1.0.2",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
+    "isarray": "^2.0.2",
     "path": "^0.12.7",
-    "require": "^2.4.20"
+    "process-nextick-args": "^2.0.0",
+    "require": "^2.4.20",
+    "sqlstring": "^2.3.0",
+    "type-is": "^1.6.15"
   },
   "devDependencies": {}
 }

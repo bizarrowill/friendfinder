@@ -32,16 +32,16 @@ module.exports = function(app, path) {
 
           // Store the difference in values
           var closestMatch = 0;
-          var matchScore = 9999;
+          var matchScore = 999999999999999;
 
-          // Loop through the file to find the closest match
+          // Loop to find the closest match
             for (var i = 0; i < friendFile.length; i++) {
               var spaceBetween = 0;
               for (var j = 0; j < friendFile[i]["answers[]"].length; j++) {
                 spaceBetween += Math.abs(parseInt(req.body["answers[]"][j]) - parseInt(friendFile[i]["answers[]"][j]));
               }
 
-              // update the closestMatch if value between current are less than previous match
+              // update the closestMatch if spaceBetween current listing is nearest closest user
               if (spaceBetween <= matchScore) {
                 matchScore = spaceBetween;
                 closestMatch = i;

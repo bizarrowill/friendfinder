@@ -55,7 +55,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 class="modal-title">
-            <strong>Your Best Match</strong>
+            <strong>Your Best Match!</strong>
           </h2>
         </div>
         <div class="modal-body">
@@ -81,18 +81,18 @@
         <h3>About You</h3>
       </div>
       <div class="col-lg-12">
-        <p>Name (Required)</p>
+        <p>Name *Required*</p>
         <input type="text" class="form-control" id="yourName" placeholder="Your Name">
       </div>
       <div class="col-lg-12">
-        <p class="topMargin">Link To Photo Image (Required)</p>
+        <p class="topMargin">Link To Photo *Required*</p>
         <input type="text" class="form-control" id="yourImage" placeholder="Your Image">
       </div>
     </div>
   </div>
 
 
-
+<!--     Survey script         -->
   <script type="text/javascript">
     function createQuestions() {
       let q1 = "My favorite food is pizza.";
@@ -127,7 +127,7 @@
       );
     }
     $("#questionDiv").append(
-      '<button type="submit" class="btn btn-primary topMargin" id="submitButton"><i class="fa fa-flag-checkered" aria-hidden="true"></i> Submit</button>'
+      '<button type="submit" class="btn btn-danger topMargin" id="submitButton"><i class="fa fa-rebel" aria-hidden="true"></i> Submit</button>'
       + '</div></div>'
     );
     // Chosen Dropdown Setup
@@ -140,7 +140,7 @@
         disable_search_threshold: 10
       },
       ".chosen-select-no-results": {
-        no_results_text: "Oops, nothing found!"
+        no_results_text: "Nothing to see here!"
       },
       ".chosen-select-width": {
         width: "95%"
@@ -149,27 +149,28 @@
     for (var selector in config) {
       $(selector).chosen(config[selector]);
     }
-    // User clicks the submit button
+    // Action on click
     $("#submitButton").on("click", function (event) {
       // Don't reload the page
       event.preventDefault();
-      // Make sure all form elements were selected
+
+      // Validation to ensure answers submitted
       function userValidation() {
-        // Start with correct validation
+        // correct validation
         let valid = true;
         // Check if user entered yourName
         if ($("#yourName").val() === "") {
-          // If a value is empty, validation is incorrect
+          // If a value is empty, invalid
           valid = false;
         }
-        // Check if user entered yourImg
+        // Check for picture
         if ($("#yourImage").val() === "") {
-          // If a value is empty, validation is incorrect
+          
           valid = false;
         }
-        // Check if yourImg begins with "http://" or "https://"
+        // Confirm image is valid link
         if ($("#yourImage").val().charAt(4) !== ":" && $("#yourImage").val().charAt(5) !== ":") {
-          // If yourImg isn't "http://" or "https://", validation is incorrect
+          
           valid = false;
         }
         // Check dropdown boxes for empty values (top values are always empty)
@@ -179,12 +180,12 @@
             valid = false;
           }
         });
-        // This function will return true if validation is correct, false if not
+        // true if validation is correct, false if not
         return valid;
       }
-      // Move forward if validation is correct
+      // Store answers if valid responses and move forward
       if (userValidation()) {
-        // Store the user's answers
+        
         var formAnswers = {
           "name": $("#yourName").val().trim(),
           "photo": $("#yourImage").val().trim(),
@@ -201,9 +202,9 @@
             parseInt($("#q9").val())
           ]
         };
-        // AJAX POST to api/friends.
+        // POST to friends route
         $.post("/api/friends", formAnswers, function (data) {
-          // Update the match modal with the correct name & image
+          // Update the match modal with the closest name & image
           $("#friendNameDiv").html("<h2>" + data.name + "</h2>");
           $("#friendImg").attr("src", data.photo);
           // Show the match modal
@@ -212,7 +213,7 @@
       }
       // If the user validation failed
       else {
-        alert("Please answer all of the questions correctly!");
+        alert("You missed something, check your answers!");
       }
     });
   </script>
