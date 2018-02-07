@@ -30,7 +30,7 @@ module.exports = function(app, path) {
           // Read the existing array
           var friendFile = JSON.parse(data);
 
-          // Store the difference in values
+          // Store difference in values
           var closestMatch = 0;
           var matchScore = 999999999999999;
 
