@@ -30,5 +30,7 @@
     "sqlstring": "^2.3.0",
     "type-is": "^1.6.15"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "express-print-routes": "^1.0.0"
+  }
 }

@@ -62,4 +62,4 @@
       "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/hero/Movies/2010/B0060D10I2_AliceInWonderland_UXDY1._V143826859_RI_SX940_.jpg",
     "scores": [5, 3, 2, 4, 4, 2, 3, 3, 2, 4]
   }
-];
+]

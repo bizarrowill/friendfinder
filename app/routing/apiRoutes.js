@@ -57,5 +57,6 @@ module.exports = function(app, path) {
           fs.writeFile("app/data/friends.js", JSON.stringify(friendFile));
           res.send(returnMatch[0]);
         });
+        
     });
 }
