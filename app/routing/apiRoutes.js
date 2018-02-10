@@ -29,6 +29,7 @@ module.exports = function(app, path) {
         fs.readFile("app/data/friends.js", function(err, data) {
           // Read the existing array
           var friendFile = JSON.parse(data);
+          //console.log(friendFile);
 
           // Store difference in values
           var closestMatch = 0;
@@ -37,8 +38,8 @@ module.exports = function(app, path) {
           // Loop to find the closest match
             for (var i = 0; i < friendFile.length; i++) {
               var spaceBetween = 0;
-              for (var j = 0; j < friendFile[i]["answers[]"].length; j++) {
-                spaceBetween += Math.abs(parseInt(req.body["answers[]"][j]) - parseInt(friendFile[i]["answers[]"][j]));
+              for (var j = 0; j < friendFile[i].scores.length; j++) {
+                spaceBetween += Math.abs(parseInt(req.body['answers[]'][j]) - parseInt(friendFile[i].scores[j]));
               }
 
               // update the closestMatch if spaceBetween current listing is nearest closest user
