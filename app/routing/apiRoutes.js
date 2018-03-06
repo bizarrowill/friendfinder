@@ -1,63 +1,72 @@
-var fs = require("fs");
+//   load in routes to our data to power the app
+
+var friends = require('../data/friends.js');
+
+// const friendsList = JSON.parse(JSON.stringify(friends));
+// console.log(friendsList.friends);
+// friendsList = friendsList.friends;
 
 
-module.exports = function(app, path) {
-    
-  //  Routes
+//-----------Routes
 
-  //   show all match potentials
-    app.get("/api/friends", function(req, res) {
-      fs.readFile("app/data/friends.js", "utf8", function(err, data) {
-			if (err) {
-				return console.log(err);
-			}
+module.exports = function (app) {
 
-			else {
-				res.json(JSON.parse(data));
-			}
-		});
-	});
-    
-  //    save answers and return closest match 
-    app.post("/api/friends", function(req, res) {
-      //    closest match response
-      var returnMatch = [];
 
-      //    response object
-      var postResponse = JSON.stringify(req.body);
+  //   show all match potentials - API GET Request
+  app.get("/api/friends", function (req, res) {
+    // this will load when user first hits page
+    res.json(friends);
+  });
 
-        fs.readFile("app/data/friends.js", function(err, data) {
-          // Read the existing array
-          var friendFile = JSON.parse(data);
-          //console.log(friendFile);
+  //    save answers on submit and return closest match - API POST Request
+  app.post("/api/friends", function (req, res) {
+    //    in this section our server will take the user survey results then
+    //    compare with our database to return the best 'match' by calculating
+    //    an overall difference rating numbers. Then the user will become part of database
 
-          // Store difference in values
-          var closestMatch = 0;
-          var matchScore = 999999999999999;
+    // Object to hold the 'best match' -- will update constantly while looping options
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDifference: Infinity
+    };
 
-          // Loop to find the closest match
-            for (var i = 0; i < friendFile.length; i++) {
-              var spaceBetween = 0;
-              for (var j = 0; j < friendFile[i].scores.length; j++) {
-                spaceBetween += Math.abs(parseInt(req.body['answers[]'][j]) - parseInt(friendFile[i].scores[j]));
-              }
+    // Parse results of user survey 'POST'
+    var userData = req.body;
+    var userScores = userData.scores;
 
-              // update the closestMatch if spaceBetween current listing is nearest closest user
-              if (spaceBetween <= matchScore) {
-                matchScore = spaceBetween;
-                closestMatch = i;
-              }
-            }
+    // variable to determine diffference in user scores with database scores
+    var totalDifference;
 
-          returnMatch.push(friendFile[closestMatch]);
+    // loop through match possibilities in database
+    for (var i = 0; i < friends.length; i ++) {
+      var currentFriend = friends[i];
+      totalDifference = 0;
+      
+      console.log(currentFriend.name);
 
-          // add new person to the friends array
-          friendFile.push(JSON.parse(postResponse));
+      // then loop through all of the scores for each match
+      for (var j = 0; j < currentFriend.scores.length; j++) {
+        var currentFriendScore = currentFriend.scores[j];
+        var currentUserScore = userScores[j];
 
-          // Push the updated result 
-          fs.writeFile("app/data/friends.js", JSON.stringify(friendFile));
-          res.send(returnMatch[0]);
-        });
-        
-    });
+        // calculate difference between scores and add into totalDifference
+        totalDifference += Math.abs(parseInt(currentUserScore) - parseInt(currentFriendScore));
+      }
+
+      // If the total of difference is less than differences of current 'best match'
+      if (totalDifference <= bestMatch.friendDifference) {
+        // reset bestMatch to the new friend
+        bestMatch.name = currentFriend.name;
+        bestMatch.photo = currentFriend.photo;
+        bestMatch.friendDifference = totalDifference;
+
+      }
+    }
+    // Save user's data to database after the check to ensure its not comparing to self
+    friends.push(userData);
+
+    // return json of user's bestMatch to be used in HTML on next page
+    res.json(bestMatch);
+  });
 }
