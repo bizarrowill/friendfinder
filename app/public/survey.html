@@ -16,8 +16,7 @@
     crossorigin="anonymous"></script>
 
   <!-- Load Font Awesome -->
-  <script src="https://use.fontawesome.com/e14e0f3537.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <!-- Load Chosen Plugin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
@@ -186,7 +185,7 @@
       // Store answers if valid responses and move forward
       if (userValidation()) {
         
-        var formAnswers = {
+        var userData = {
           "name": $("#yourName").val().trim(),
           "photo": $("#yourImage").val().trim(),
           "answers": [
@@ -203,7 +202,7 @@
           ]
         };
         // POST to friends route
-        $.post("/api/friends", formAnswers, function (data) {
+        $.post("/api/friends", userData, function (data) {
           // Update the match modal with the closest name & image
           $("#friendNameDiv").html("<h2>" + data.name + "</h2>");
           $("#friendImg").attr("src", data.photo);

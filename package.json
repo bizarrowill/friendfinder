@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/bizarrowill/friendfinder/issues"
   },
-  "homepage": "https://github.com/bizarrowill/friendfinder#readme"
+  "homepage": "https://github.com/bizarrowill/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
 }

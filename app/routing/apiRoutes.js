@@ -1,6 +1,6 @@
 //   load in routes to our data to power the app
 
-var friends = require('../data/friends.js');
+var friends = require("../data/friends");
 
 // const friendsList = JSON.parse(JSON.stringify(friends));
 // console.log(friendsList.friends);
@@ -39,10 +39,10 @@ module.exports = function (app) {
     var totalDifference;
 
     // loop through match possibilities in database
-    for (var i = 0; i < friends.length; i ++) {
+    for (var i = 0; i < friends.length; i++) {
       var currentFriend = friends[i];
       totalDifference = 0;
-      
+
       console.log(currentFriend.name);
 
       // then loop through all of the scores for each match
@@ -69,4 +69,4 @@ module.exports = function (app) {
     // return json of user's bestMatch to be used in HTML on next page
     res.json(bestMatch);
   });
-}
+};
