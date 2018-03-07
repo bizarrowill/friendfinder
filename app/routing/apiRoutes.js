@@ -1,6 +1,6 @@
 //   load in routes to our data to power the app
 
-var friends = require("../data/friends");
+var friends = require("../data/friends.js");
 
 // const friendsList = JSON.parse(JSON.stringify(friends));
 // console.log(friendsList.friends);
@@ -33,6 +33,7 @@ module.exports = function (app) {
 
     // Parse results of user survey 'POST'
     var userData = req.body;
+    console.log(userData);
     var userScores = userData.scores;
 
     // variable to determine diffference in user scores with database scores
@@ -48,6 +49,7 @@ module.exports = function (app) {
       // then loop through all of the scores for each match
       for (var j = 0; j < currentFriend.scores.length; j++) {
         var currentFriendScore = currentFriend.scores[j];
+        console.log(currentFriendScore);
         var currentUserScore = userScores[j];
 
         // calculate difference between scores and add into totalDifference
@@ -65,6 +67,7 @@ module.exports = function (app) {
     }
     // Save user's data to database after the check to ensure its not comparing to self
     friends.push(userData);
+    // console.log(userData);
 
     // return json of user's bestMatch to be used in HTML on next page
     res.json(bestMatch);

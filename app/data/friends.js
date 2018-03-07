@@ -1,4 +1,4 @@
-module.exports.friends = [
+var friends = [
   {
     name: "Frank the Clown",
     photo: "https://i.ytimg.com/vi/LNlk3VucmKk/maxresdefault.jpg",
@@ -63,3 +63,5 @@ module.exports.friends = [
     scores: [5, 3, 2, 4, 4, 2, 3, 3, 2, 4]
   }
 ];
+
+module.exports = friends;
