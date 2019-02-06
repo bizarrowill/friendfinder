@@ -1,4 +1,4 @@
-const albums = [
+var albums = [
   {
     title: "SELF",
     artist: "Samuelthe1st",
@@ -38,3 +38,5 @@ const albums = [
     thumbnail_image: "https://i.imgur.com/K3KJ3w4h.jpg"
   }
 ];
+
+module.exports = albums;

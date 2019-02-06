@@ -1,7 +1,7 @@
 //   load in routes to our data to power the app
 
 var friends = require("../data/friends.js");
-const albums = require("../data/albums.js");
+var albums = require("../data/albums.js");
 
 // const friendsList = JSON.parse(JSON.stringify(friends));
 // console.log(friendsList.friends);
