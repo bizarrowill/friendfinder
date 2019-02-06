@@ -35,8 +35,7 @@ var albums = [
     title: "Green Room - Single",
     artist: "Samuelthe1st",
     url: "https://itunes.apple.com/us/album/green-room-single/1201464122",
-    image:
-      "https://images-na.ssl-images-amazon.com/images/I/717DWgRftmL._SX522_.jpg",
+    image: "https://m.media-amazon.com/images/I/A1TcVqx0v5L._SS500_.jpg",
     thumbnail_image:
       "https://instagram.fphx1-1.fna.fbcdn.net/vp/a30c15ffacdaeb94f8edb49e1a6b96a2/5CE84841/t51.2885-19/s150x150/50602409_1259502774227622_243420801963917312_n.jpg?_nc_ht=instagram.fphx1-1.fna.fbcdn.net"
   },
