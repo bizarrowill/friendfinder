@@ -2,8 +2,8 @@ var albums = [
   {
     title: "SELF",
     artist: "SamuelThe1st",
-    url: "https://itunes.apple.com/us/album/self/1446538476",
-    url2: "https://open.spotify.com/track/1P0M7iWSflGXPacpVZb10N",
+    url: "https://www.samuelthe1st.com/#home-section",
+    url2: "https://www.samuelthe1st.com/#home-section",
     image: "https://m.media-amazon.com/images/I/711xF8AIF9L._SS500_.jpg",
     thumbnail_image:
       "https://instagram.fphx1-1.fna.fbcdn.net/vp/a30c15ffacdaeb94f8edb49e1a6b96a2/5CE84841/t51.2885-19/s150x150/50602409_1259502774227622_243420801963917312_n.jpg?_nc_ht=instagram.fphx1-1.fna.fbcdn.net"
