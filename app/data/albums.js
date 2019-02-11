@@ -50,7 +50,7 @@ var albums = [
     url:
       "https://itunes.apple.com/us/album/limelit-feat-lang-single/1201573399",
     image: "https://m.media-amazon.com/images/I/91S-wf7UPML._SS500_.jpg",
-    url2: "hhttps://open.spotify.com/track/7nofH0SKrfiFCmp5xQov92",
+    url2: "https://open.spotify.com/track/7nofH0SKrfiFCmp5xQov92",
     image: "https://m.media-amazon.com/images/I/91S-wf7UPML._SS500_.jpg",
     thumbnail_image:
       "https://instagram.fphx1-1.fna.fbcdn.net/vp/a30c15ffacdaeb94f8edb49e1a6b96a2/5CE84841/t51.2885-19/s150x150/50602409_1259502774227622_243420801963917312_n.jpg?_nc_ht=instagram.fphx1-1.fna.fbcdn.net"
